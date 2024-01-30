@@ -4,10 +4,12 @@ from telegram.ext import filters, MessageHandler, ApplicationBuilder, CommandHan
 
 # Authentication to manage the bot
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 TOKEN = os.getenv('TOKEN')
+
+if TOKEN==None:
+    print('Lembra indicar a variable TOKEN')
+    print('p.ex: docker run --rm -e TOKEN=o_teu_token telebot')
+    exit(1)
 
 # Show logs in terminal
 logging.basicConfig(
